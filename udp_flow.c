@@ -5,12 +5,22 @@
  * UDP flow tracking functions
  */
 
+#include <arpa/inet.h>
+#include <stddef.h>
+#include <stdint.h>
 #include <errno.h>
-#include <fcntl.h>
-#include <sys/uio.h>
+#include <netinet/in.h>
+#include <sys/epoll.h>
+#include <time.h>
 #include <unistd.h>
-#include <netinet/udp.h>
 
+#include "epoll_type.h"
+#include "flow.h"
+#include "fwd.h"
+#include "inany.h"
+#include "log.h"
+#include "pif.h"
+#include "udp_flow.h"
 #include "util.h"
 #include "passt.h"
 #include "flow_table.h"

@@ -16,20 +16,22 @@
 #include <limits.h>
 #include <errno.h>
 #include <fcntl.h>
+#include <linux/falloc.h>
+#include <linux/limits.h>
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <sys/syslog.h>
 #include <unistd.h>
 #include <string.h>
 #include <time.h>
 #include <syslog.h>
 #include <stdarg.h>
 #include <sys/socket.h>
+#include <sys/un.h>
 
-#include "linux_dep.h"
 #include "log.h"
 #include "util.h"
-#include "passt.h"
 
 static int	log_sock = -1;		/* Optional socket to system logger */
 static char	log_ident[BUFSIZ];	/* Identifier string for openlog() */

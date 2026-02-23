@@ -7,6 +7,8 @@
 #define UDP_VU_H
 
 #include "flow.h"
+#include "util.h"
+#include <time.h>
 
 void udp_vu_listen_sock_data(const struct ctx *c, union epoll_ref ref,
 			     const struct timespec *now);

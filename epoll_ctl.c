@@ -5,7 +5,12 @@
  * Author: Laurent Vivier <lvivier@redhat.com>
  */
 
+#include "log.h"
+#include "util.h"
+#include <stddef.h>
 #include <errno.h>
+#include <stdint.h>
+#include <sys/epoll.h>
 
 #include "epoll_ctl.h"
 

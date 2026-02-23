@@ -9,11 +9,15 @@
 #ifndef INANY_H
 #define INANY_H
 
+#include "util.h"
 #include <assert.h>
+#include <netinet/in.h>
+#include <stdint.h>
 #include <string.h>
 
 #include "ip.h"
 #include "siphash.h"
+#include <sys/socket.h>
 
 struct siphash_state;
 

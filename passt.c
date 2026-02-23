@@ -19,22 +19,28 @@
  * created in a separate network namespace).
  */
 
+#include "epoll_type.h"
+#include "flow.h"
+#include "fwd.h"
+#include "icmp.h"
+#include "tcp.h"
+#include "udp.h"
+#include "vhost_user.h"
 #include <fcntl.h>
+#include <stdint.h>
+#include <sys/epoll.h>
 #include <sys/mman.h>
+#include <sys/param.h>
 #include <sys/resource.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <netdb.h>
 #include <signal.h>
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
 #include <time.h>
 #include <syslog.h>
-#include <sys/prctl.h>
-#include <netinet/if_ether.h>
-#include <libgen.h>
 
 #include "util.h"
 #include "passt.h"

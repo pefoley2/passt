@@ -12,7 +12,8 @@
 #define VHOST_USER_H
 
 #include "virtio.h"
-#include "iov.h"
+#include <linux/vhost_types.h>
+#include <stdint.h>
 
 #define VHOST_USER_F_PROTOCOL_FEATURES 30
 #define VHOST_LOG_PAGE 4096

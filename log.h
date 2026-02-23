@@ -9,7 +9,9 @@
 #include <stdarg.h>
 #include <stdbool.h>
 #include <stddef.h>
+#include <sys/syslog.h>
 #include <syslog.h>
+#include <time.h>
 
 /* This would make more sense in util.h, but because we use it in die(), that
  * would cause awkward circular reference problems.

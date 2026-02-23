@@ -7,10 +7,15 @@
 #ifndef FLOW_TABLE_H
 #define FLOW_TABLE_H
 
+#include "flow.h"
 #include "pif.h"
 #include "tcp_conn.h"
 #include "icmp_flow.h"
 #include "udp_flow.h"
+#include "util.h"
+#include <stddef.h>
+#include <netinet/in.h>
+#include <stdint.h>
 
 /**
  * struct flow_free_cluster - Information about a cluster of free entries

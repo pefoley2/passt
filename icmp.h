@@ -7,8 +7,9 @@
 #define ICMP_H
 
 #include <stdint.h>
+#include <time.h>
 
-#include <netinet/in.h>
+#include "epoll_ctl.h"
 
 struct ctx;
 struct icmp_ping_flow;

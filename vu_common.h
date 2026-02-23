@@ -8,12 +8,15 @@
 #ifndef VU_COMMON_H
 #define VU_COMMON_H
 
+#include <linux/if_ether.h>
+#include <netinet/ip.h>
 #include <stddef.h>
 
 #include <linux/virtio_net.h>
 
 #include "ip.h"
 #include "virtio.h"
+#include <time.h>
 
 static inline void *vu_eth(void *base)
 {

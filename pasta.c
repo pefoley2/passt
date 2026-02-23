@@ -16,7 +16,11 @@
  * #syscalls:pasta arm:sigreturn ppc64:sigreturn s390x:sigreturn i686:sigreturn
  */
 
+#include "epoll_type.h"
+#include <linux/limits.h>
+#include <linux/prctl.h>
 #include <sched.h>
+#include <stddef.h>
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
@@ -25,28 +29,23 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <sys/socket.h>
 #include <unistd.h>
 #include <syslog.h>
 #include <sys/inotify.h>
 #include <sys/mount.h>
 #include <sys/timerfd.h>
 #include <sys/types.h>
-#include <sys/stat.h>
 #include <sys/statfs.h>
 #include <fcntl.h>
 #include <sys/wait.h>
 #include <signal.h>
-#include <dirent.h>
-#include <arpa/inet.h>
 #include <netinet/in.h>
-#include <net/ethernet.h>
 #include <sys/prctl.h>
-#include <sys/syscall.h>
 #include <linux/magic.h>
 
 #include "util.h"
 #include "passt.h"
-#include "isolation.h"
 #include "netlink.h"
 #include "log.h"
 #include "epoll_ctl.h"

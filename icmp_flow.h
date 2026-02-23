@@ -8,6 +8,8 @@
 #define ICMP_FLOW_H
 
 #include "flow.h"
+#include "util.h"
+#include <time.h>
 
 /**
  * struct icmp_ping_flow - Descriptor for a flow of ping requests/replies

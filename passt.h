@@ -6,6 +6,13 @@
 #ifndef PASST_H
 #define PASST_H
 
+#include "util.h"
+#include "virtio.h"
+#include <arpa/nameser.h>
+#include <linux/if_ether.h>
+#include <linux/limits.h>
+#include <netinet/in.h>
+#include <stdint.h>
 #define UNIX_SOCK_MAX		100
 #define UNIX_SOCK_PATH		"/tmp/passt_%i.socket"
 
@@ -13,20 +20,10 @@ union epoll_ref;
 
 #include <stdbool.h>
 #include <assert.h>
-#include <sys/epoll.h>
 
-#include "pif.h"
-#include "packet.h"
-#include "siphash.h"
-#include "ip.h"
-#include "inany.h"
-#include "migrate.h"
-#include "flow.h"
 #include "icmp.h"
-#include "fwd.h"
 #include "tcp.h"
 #include "udp.h"
-#include "vhost_user.h"
 
 /* Default address for our end on the tap interface.  Bit 0 of byte 0 must be 0
  * (unicast) and bit 1 of byte 1 must be 1 (locally administered).  Otherwise
@@ -45,7 +42,7 @@ extern char *epoll_type_str[];
 	(((uint8_t)(n) < EPOLL_NUM_TYPES && epoll_type_str[(n)]) ?	\
 	                                    epoll_type_str[(n)] : "?")
 
-#include <resolv.h>	/* For MAXNS below */
+#include <resolv.h>    /* For MAXNS below */
 
 /**
  * struct fqdn - Representation of fully-qualified domain name
@@ -146,7 +143,6 @@ struct ip6_ctx {
 	bool no_copy_addrs;
 };
 
-#include <netinet/if_ether.h>
 
 /**
  * struct ctx - Execution context

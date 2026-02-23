@@ -7,12 +7,15 @@
 #define TCP_H
 
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
-
+#include <time.h>
 #include <netinet/in.h>
-#include <sys/socket.h>
 
+#include "inany.h"
+#include "packet.h"
 #include "fwd.h"
+#include "epoll_ctl.h"
 
 #define TCP_TIMER_INTERVAL		1000	/* ms */
 

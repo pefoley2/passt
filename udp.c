@@ -80,15 +80,20 @@
  * Note that a spliced flow will have two flow sockets (see above).
  */
 
-#include <sched.h>
+#include "epoll_type.h"
+#include "flow.h"
+#include "fwd.h"
+#include "packet.h"
+#include "pif.h"
+#include "udp_flow.h"
+#include <asm-generic/socket.h>
+#include <linux/if_ether.h>
+#include <sys/param.h>
 #include <unistd.h>
-#include <signal.h>
 #include <stdio.h>
 #include <errno.h>
 #include <limits.h>
 #include <assert.h>
-#include <net/ethernet.h>
-#include <net/if.h>
 #include <netinet/in.h>
 #include <netinet/ip.h>
 #include <netinet/udp.h>
@@ -97,7 +102,6 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <string.h>
-#include <sys/types.h>
 #include <sys/socket.h>
 #include <sys/uio.h>
 #include <time.h>
@@ -108,11 +112,9 @@
 #include "util.h"
 #include "iov.h"
 #include "ip.h"
-#include "siphash.h"
 #include "inany.h"
 #include "passt.h"
 #include "tap.h"
-#include "pcap.h"
 #include "log.h"
 #include "flow_table.h"
 #include "udp_internal.h"

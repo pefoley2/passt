@@ -21,9 +21,12 @@
  * GNU GPL, version 2 or (at your option) any later version.
  */
 
-#include <sys/socket.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <string.h>
 
 #include "util.h"
+#include <sys/types.h>
 #include "iov.h"
 
 /**

@@ -18,6 +18,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/uio.h>
 
 #define IOV_OF_LVALUE(lval) \
 	(struct iovec){ .iov_base = &(lval), .iov_len = sizeof(lval) }

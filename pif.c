@@ -5,17 +5,19 @@
  * Passt/pasta interface types and IDs
  */
 
-#include <errno.h>
 #include <stdint.h>
 #include <assert.h>
 #include <netinet/in.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <unistd.h>
 
+#include "epoll_type.h"
 #include "util.h"
 #include "pif.h"
-#include "siphash.h"
-#include "ip.h"
 #include "inany.h"
 #include "epoll_ctl.h"
+#include "passt.h"
 
 const char *pif_type_str[] = {
 	[PIF_NONE]		= "<none>",

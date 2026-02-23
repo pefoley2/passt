@@ -7,7 +7,9 @@
 #ifndef FWD_H
 #define FWD_H
 
+#include "util.h"
 #include <assert.h>
+#include <net/if.h>
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
@@ -15,6 +17,7 @@
 #include <netinet/in.h>
 
 #include "inany.h"
+#include <time.h>
 
 struct flowside;
 

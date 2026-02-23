@@ -12,11 +12,12 @@
  * Author: Stefano Brivio <sbrivio@redhat.com>
  */
 
+#include "iov.h"
+#include "virtio.h"
 #include <limits.h>
 #include <stddef.h>
 #include <stdint.h>
 
-#include <netinet/ip6.h>
 
 #include "packet.h"
 #include "util.h"

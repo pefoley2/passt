@@ -13,11 +13,19 @@
  * Author: David Gibson <david@gibson.dropbear.id.au>
  */
 
+#include "log.h"
+#include "pif.h"
+#include "tcp.h"
+#include "udp.h"
 #include <assert.h>
+#include <linux/if_ether.h>
+#include <netinet/in.h>
 #include <stdint.h>
 #include <errno.h>
 #include <fcntl.h>
-#include <sched.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
 #include <unistd.h>
 #include <stdio.h>
 
@@ -29,8 +37,6 @@
 #include "fwd.h"
 #include "passt.h"
 #include "lineread.h"
-#include "flow_table.h"
-#include "netlink.h"
 #include "arp.h"
 #include "ndp.h"
 

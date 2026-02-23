@@ -6,10 +6,13 @@
 #ifndef IP_H
 #define IP_H
 
+#include "iov.h"
+#include <netinet/in.h>
 #include <netinet/ip.h>
-#include <netinet/ip6.h>
 
 #include "util.h"
+#include <stddef.h>
+#include <stdint.h>
 
 #define IN4_IS_ADDR_UNSPECIFIED(a) \
 	(((struct in_addr *)(a))->s_addr == htonl_constant(INADDR_ANY))

@@ -31,9 +31,11 @@
  * #syscalls:pasta pipe2|pipe fcntl arm:fcntl64 ppc64:fcntl64|fcntl i686:fcntl64
  */
 
-#include <sched.h>
+#include "pif.h"
+#include "tcp_conn.h"
+#include <asm-generic/socket.h>
+#include <sys/epoll.h>
 #include <unistd.h>
-#include <signal.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <limits.h>
@@ -41,18 +43,13 @@
 #include <stdbool.h>
 #include <string.h>
 #include <time.h>
-#include <net/ethernet.h>
-#include <netinet/in.h>
 #include <netinet/tcp.h>
-#include <sys/types.h>
 #include <sys/socket.h>
 
 #include "util.h"
-#include "ip.h"
 #include "passt.h"
 #include "log.h"
 #include "tcp_splice.h"
-#include "siphash.h"
 #include "inany.h"
 #include "flow.h"
 #include "epoll_ctl.h"

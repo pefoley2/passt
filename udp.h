@@ -6,10 +6,14 @@
 #ifndef UDP_H
 #define UDP_H
 
+#include "inany.h"
+#include "packet.h"
+#include "util.h"
 #include <stdint.h>
 #include <netinet/in.h>
 
 #include "fwd.h"
+#include <time.h>
 
 void udp_listen_sock_handler(const struct ctx *c, union epoll_ref ref,
 			     uint32_t events, const struct timespec *now);

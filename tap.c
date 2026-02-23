@@ -13,31 +13,33 @@
  *
  */
 
-#include <sched.h>
+#include "epoll_type.h"
+#include "fwd.h"
+#include "icmp.h"
+#include "pif.h"
+#include "tcp.h"
+#include "udp.h"
+#include <asm-generic/socket.h>
+#include <linux/if_ether.h>
+#include <sys/socket.h>
+#include <time.h>
 #include <unistd.h>
-#include <signal.h>
 #include <stdio.h>
 #include <errno.h>
 #include <limits.h>
 #include <string.h>
-#include <net/ethernet.h>
 #include <net/if.h>
-#include <net/if_arp.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <stdint.h>
 #include <sys/ioctl.h>
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <fcntl.h>
 #include <sys/uio.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <netinet/ip.h>
-#include <netinet/tcp.h>
 #include <netinet/udp.h>
 #include <netinet/ip_icmp.h>
-#include <netinet/if_ether.h>
 
 #include <linux/if_tun.h>
 #include <linux/icmpv6.h>
@@ -52,7 +54,6 @@
 #include "ndp.h"
 #include "dhcpv6.h"
 #include "pcap.h"
-#include "netlink.h"
 #include "pasta.h"
 #include "packet.h"
 #include "repair.h"

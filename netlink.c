@@ -12,20 +12,25 @@
  * Author: Stefano Brivio <sbrivio@redhat.com>
  */
 
-#include <sched.h>
+#include "epoll_type.h"
+#include "fwd.h"
+#include "inany.h"
+#include <linux/if_addr.h>
+#include <linux/if_ether.h>
+#include <linux/if_link.h>
+#include <linux/neighbour.h>
 #include <string.h>
 #include <stddef.h>
 #include <errno.h>
+#include <sys/epoll.h>
+#include <sys/socket.h>
 #include <sys/types.h>
 #include <limits.h>
 #include <unistd.h>
-#include <signal.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
-#include <arpa/inet.h>
 #include <netinet/in.h>
-#include <netinet/if_ether.h>
 #include <net/if_arp.h>
 
 #include <linux/netlink.h>
