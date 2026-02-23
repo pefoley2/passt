@@ -70,7 +70,7 @@ union fwd_listen_ref {
 	};
 	uint32_t u32;
 };
-static_assert(sizeof(union fwd_listen_ref) == sizeof(uint32_t));
+static_assert(sizeof(union fwd_listen_ref) == sizeof(uint32_t), "");
 
 enum fwd_ports_mode {
 	FWD_UNSET = 0,
