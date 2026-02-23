@@ -9,8 +9,10 @@
 #ifndef VIRTIO_H
 #define VIRTIO_H
 
+#include <linux/virtio_ring.h>
 #include <stdbool.h>
 #include <linux/vhost_types.h>
+#include <stdint.h>
 
 /* Maximum size of a virtqueue */
 #define VIRTQUEUE_MAX_SIZE 1024

@@ -6,10 +6,18 @@
 #ifndef UDP_INTERNAL_H
 #define UDP_INTERNAL_H
 
+#include "flow.h"
+#include "ip.h"
+#include "passt.h"
+#include <limits.h>
 #include <netinet/in.h>
+#include <netinet/ip.h>
 #include <netinet/udp.h>
 
 #include "tap.h" /* needed by udp_meta_t */
+#include <stddef.h>
+#include <stdint.h>
+#include <time.h>
 
 /**
  * struct udp_payload_t - UDP header and data for inbound messages

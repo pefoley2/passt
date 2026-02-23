@@ -12,12 +12,22 @@
  * Author: Stefano Brivio <sbrivio@redhat.com>
  */
 
+#include <getopt.h>
+#include <inttypes.h>
+#include <limits.h>
+#include <stdarg.h>
+#include <linux/close_range.h>
+#include <linux/if_ether.h>
+#include <linux/un.h>
+#include <netinet/in.h>
 #include <sched.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/socket.h>
+#include <sys/syslog.h>
 #include <unistd.h>
 #include <arpa/inet.h>
-#include <net/ethernet.h>
 #include <sys/uio.h>
 #include <fcntl.h>
 #include <string.h>
@@ -26,17 +36,18 @@
 #include <stdbool.h>
 #include <linux/errqueue.h>
 #include <linux/in6.h>
-#include <getopt.h>
+#include <sys/uio.h>
+#include <sys/types.h>
 
+#include "epoll_type.h"
+#include "inany.h"
 #include "linux_dep.h"
 #include "util.h"
 #include "iov.h"
 #include "passt.h"
-#include "packet.h"
 #include "log.h"
 #include "pcap.h"
-#include "epoll_ctl.h"
-#include "pasta.h"
+
 #ifdef HAS_GETRANDOM
 #include <sys/random.h>
 #endif

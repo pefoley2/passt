@@ -12,21 +12,20 @@
  * assume existing users switched to it.
  */
 
+#include <asm-generic/socket.h>
+#include <linux/if_ether.h>
+#include <linux/un.h>
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <sys/types.h>
 #include <sys/socket.h>
 #include <errno.h>
 #include <linux/limits.h>
 #include <limits.h>
-#include <fcntl.h>
 #include <net/if_arp.h>
 #include <netinet/in.h>
-#include <netinet/ip6.h>
-#include <netinet/if_ether.h>
 #include <time.h>
 
 #include <linux/icmpv6.h>

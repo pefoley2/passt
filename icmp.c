@@ -12,33 +12,35 @@
  * Author: Stefano Brivio <sbrivio@redhat.com>
  */
 
-#include <errno.h>
-#include <net/ethernet.h>
-#include <net/if.h>
-#include <netinet/ip.h>
+#include "epoll_type.h"
+#include "flow.h"
+#include "fwd.h"
+#include "iov.h"
+#include "pif.h"
+#include <inttypes.h>
+#include <netinet/in.h>
 #include <netinet/ip_icmp.h>
 #include <stdio.h>
 #include <limits.h>
 #include <stdint.h>
 #include <stddef.h>
 #include <string.h>
+#include <sys/epoll.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <time.h>
 
 #include <linux/icmpv6.h>
 
-#include "packet.h"
 #include "util.h"
-#include "ip.h"
 #include "passt.h"
 #include "tap.h"
 #include "log.h"
-#include "siphash.h"
 #include "inany.h"
 #include "icmp.h"
 #include "flow_table.h"
 #include "epoll_ctl.h"
+#include <unistd.h>
 
 #define ICMP_ECHO_TIMEOUT	60 /* s, timeout for ICMP socket activity */
 #define ICMP_NUM_IDS		(1U << 16)

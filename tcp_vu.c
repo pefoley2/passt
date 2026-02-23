@@ -5,34 +5,37 @@
  * Author: Laurent Vivier <lvivier@redhat.com>
  */
 
+#include "iov.h"
+#include "log.h"
+#include "virtio.h"
 #include <errno.h>
+#include <linux/if_ether.h>
+#include <netinet/in.h>
 #include <stddef.h>
 #include <stdint.h>
 
 #include <netinet/ip.h>
 #include <netinet/tcp.h>
 
+#include <string.h>
+#include <sys/param.h>
 #include <sys/socket.h>
 
-#include <netinet/if_ether.h>
-#include <linux/virtio_net.h>
 
 #include "util.h"
 #include "ip.h"
 #include "passt.h"
-#include "siphash.h"
 #include "inany.h"
 #include "vhost_user.h"
 #include "tcp.h"
 #include "pcap.h"
 #include "flow.h"
 #include "tcp_conn.h"
-#include "flow_table.h"
 #include "tcp_vu.h"
-#include "tap.h"
 #include "tcp_internal.h"
 #include "checksum.h"
 #include "vu_common.h"
+#include <sys/types.h>
 #include <time.h>
 
 static struct iovec iov_vu[VIRTQUEUE_MAX_SIZE + DISCARD_IOV_NUM];

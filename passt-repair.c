@@ -16,6 +16,10 @@
  * off. Reply by echoing the command. Exit on EOF.
  */
 
+#include <stdint.h>
+#include <linux/limits.h>
+#include <linux/prctl.h>
+#include <stdint.h>
 #include <sys/inotify.h>
 #include <sys/prctl.h>
 #include <sys/types.h>
@@ -30,17 +34,13 @@
 #include <string.h>
 #include <limits.h>
 #include <unistd.h>
-#include <netdb.h>
 
 #include <netinet/tcp.h>
 
-#include <linux/audit.h>
-#include <linux/capability.h>
 #include <linux/filter.h>
 #include <linux/seccomp.h>
 
 #include "seccomp_repair.h"
-#include "linux_dep.h"
 
 #define SCM_MAX_FD 253 /* From Linux kernel (include/net/scm.h), not in UAPI */
 #define REPAIR_EXT		".repair"

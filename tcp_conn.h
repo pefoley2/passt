@@ -9,6 +9,7 @@
 #ifndef TCP_CONN_H
 #define TCP_CONN_H
 
+#include "util.h"
 #include <stdint.h>
 
 #include "flow.h"

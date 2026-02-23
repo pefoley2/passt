@@ -6,18 +6,16 @@
  *           IPv6 or IPv4 (encoded as IPv4-mapped IPv6 addresses)
  */
 
-#include <stdlib.h>
 #include <stdbool.h>
 #include <assert.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <errno.h>
 
-#include "util.h"
 #include "ip.h"
-#include "siphash.h"
 #include "inany.h"
-#include "fwd.h"
+#include <string.h>
+#include <sys/socket.h>
 
 const union inany_addr inany_loopback4 = INANY_INIT4(IN4ADDR_LOOPBACK_INIT);
 const union inany_addr inany_any4 = INANY_INIT4(IN4ADDR_ANY_INIT);

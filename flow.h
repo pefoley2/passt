@@ -7,11 +7,17 @@
 #ifndef FLOW_H
 #define FLOW_H
 
+#include <errno.h>
 #include <stdint.h>
 #include <netinet/in.h>
+#include <sys/syslog.h>
+#include <time.h>
 
+#include "epoll_type.h"
 #include "inany.h"
 #include "util.h"
+#include "log.h"
+#include "migrate.h"
 
 #define FLOW_TIMER_INTERVAL		1000	/* ms */
 

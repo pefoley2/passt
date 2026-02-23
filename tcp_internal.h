@@ -6,9 +6,14 @@
 #ifndef TCP_INTERNAL_H
 #define TCP_INTERNAL_H
 
+#include <linux/if_ether.h>
+#include <stddef.h>
 #include <stdint.h>
 #include <netinet/tcp.h>
+#include <sys/socket.h>
 
+#include "iov.h"
+#include "pif.h"
 #include "util.h"
 
 #define MAX_WS				8

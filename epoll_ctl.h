@@ -6,14 +6,13 @@
 #ifndef EPOLL_CTL_H
 #define EPOLL_CTL_H
 
+#include "fwd.h"
+#include <stdint.h>
 #include <sys/epoll.h>
 
 #include "util.h"
-#include "passt.h"
 #include "epoll_type.h"
 #include "flow.h"
-#include "tcp.h"
-#include "udp.h"
 
 /**
  * union epoll_ref - Breakdown of reference for epoll fd bookkeeping

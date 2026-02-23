@@ -5,11 +5,25 @@
  * Tracking for logical "flows" of packets.
  */
 
+#include "epoll_type.h"
+#include "fwd.h"
+#include "icmp_flow.h"
+#include "log.h"
+#include "migrate.h"
+#include "pif.h"
+#include "tcp_conn.h"
+#include "udp_flow.h"
+#include <stdarg.h>
 #include <errno.h>
+#include <linux/if_ether.h>
+#include <netinet/in.h>
 #include <stdint.h>
 #include <stdio.h>
-#include <unistd.h>
-#include <sched.h>
+#include <sys/epoll.h>
+#include <sys/param.h>
+#include <sys/socket.h>
+#include <sys/syslog.h>
+#include <time.h>
 #include <string.h>
 
 #include "util.h"

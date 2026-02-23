@@ -6,10 +6,17 @@
 #ifndef TAP_H
 #define TAP_H
 
+#include "iov.h"
+#include "ip.h"
+#include <limits.h>
+#include <linux/if_ether.h>
+#include <netinet/in.h>
+#include <netinet/ip.h>
 #include <stddef.h>
 #include <stdint.h>
 
 #include "passt.h"
+#include <time.h>
 
 /** L2_MAX_LEN_PASTA - Maximum frame length for pasta mode (with L2 header)
  *

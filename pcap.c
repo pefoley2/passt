@@ -16,17 +16,9 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <string.h>
-#include <sys/socket.h>
-#include <sys/time.h>
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <fcntl.h>
 #include <time.h>
-#include <errno.h>
-#include <net/ethernet.h>
-#include <netinet/in.h>
 #include <unistd.h>
-#include <net/if.h>
 
 #include "util.h"
 #include "passt.h"

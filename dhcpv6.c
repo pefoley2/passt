@@ -12,21 +12,23 @@
  * Author: Stefano Brivio <sbrivio@redhat.com>
  */
 
+#include "iov.h"
+#include "ip.h"
 #include <arpa/inet.h>
+#include <arpa/nameser.h>
+#include <linux/if_ether.h>
 #include <net/if_arp.h>
-#include <net/if.h>
-#include <netinet/ip.h>
+#include <netinet/in.h>
 #include <netinet/udp.h>
-#include <netinet/if_ether.h>
 #include <stdio.h>
 #include <stddef.h>
 #include <stdint.h>
-#include <unistd.h>
+#include <sys/param.h>
+#include <sys/socket.h>
 #include <string.h>
 #include <time.h>
 #include <limits.h>
 
-#include "packet.h"
 #include "util.h"
 #include "passt.h"
 #include "tap.h"

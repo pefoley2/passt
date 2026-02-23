@@ -12,18 +12,22 @@
  * Author: Stefano Brivio <sbrivio@redhat.com>
  */
 
+#include "log.h"
+#include <inttypes.h>
+#include <stddef.h>
 #include <errno.h>
-#include <sys/uio.h>
+#include <linux/if_ether.h>
+#include <netinet/in.h>
+#include <stdint.h>
+#include <string.h>
 
 #include "util.h"
-#include "ip.h"
 #include "passt.h"
-#include "inany.h"
 #include "flow.h"
-#include "flow_table.h"
 
 #include "migrate.h"
 #include "repair.h"
+#include <unistd.h>
 
 /* Magic identifier for migration data */
 #define MIGRATE_MAGIC		0xB1BB1D1B0BB1D1B0

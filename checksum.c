@@ -46,9 +46,7 @@
  * See the comment to csum_avx2() for further details.
  */
 
-#include <arpa/inet.h>
-#include <netinet/ip.h>
-#include <netinet/tcp.h>
+#include <netinet/in.h>
 #include <netinet/ip_icmp.h>
 #include <stddef.h>
 #include <stdint.h>
@@ -56,7 +54,6 @@
 #include <linux/udp.h>
 #include <linux/icmpv6.h>
 
-#include "util.h"
 #include "ip.h"
 #include "checksum.h"
 #include "iov.h"

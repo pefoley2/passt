@@ -5,22 +5,23 @@
  * Author: Laurent Vivier <lvivier@redhat.com>
  */
 
+#include "iov.h"
+#include "virtio.h"
+#include <linux/if_ether.h>
+#include <string.h>
+#include <sys/param.h>
+#include <sys/socket.h>
 #include <unistd.h>
 #include <assert.h>
-#include <net/ethernet.h>
-#include <net/if.h>
 #include <netinet/in.h>
 #include <netinet/ip.h>
 #include <netinet/udp.h>
 #include <stdint.h>
 #include <stddef.h>
-#include <sys/uio.h>
-#include <linux/virtio_net.h>
 
 #include "checksum.h"
 #include "util.h"
 #include "ip.h"
-#include "siphash.h"
 #include "inany.h"
 #include "passt.h"
 #include "pcap.h"
@@ -29,7 +30,6 @@
 #include "udp_internal.h"
 #include "flow.h"
 #include "flow_table.h"
-#include "udp_flow.h"
 #include "udp_vu.h"
 #include "vu_common.h"
 

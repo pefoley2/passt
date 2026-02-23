@@ -12,6 +12,11 @@
  * Author: Stefano Brivio <sbrivio@redhat.com>
  */
 
+#include "flow.h"
+#include "fwd.h"
+#include "tcp.h"
+#include <linux/if_ether.h>
+#include <netinet/in.h>
 #include <stddef.h>
 #include <stdint.h>
 #include <limits.h>
@@ -27,10 +32,11 @@
 #include "iov.h"
 #include "passt.h"
 #include "tap.h"
-#include "siphash.h"
 #include "inany.h"
 #include "tcp_conn.h"
 #include "tcp_internal.h"
+#include <sys/socket.h>
+#include <sys/types.h>
 #include "tcp_buf.h"
 
 #define TCP_FRAMES_MEM			128

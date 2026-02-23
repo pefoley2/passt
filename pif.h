@@ -8,10 +8,11 @@
 #define PIF_H
 
 #include <stdbool.h>
-
+#include <stdint.h>
 #include <netinet/in.h>
 
 #include "epoll_type.h"
+#include "passt.h"
 
 union inany_addr;
 union sockaddr_inany;

@@ -13,8 +13,7 @@
  */
 
 #include <limits.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <linux/limits.h>
 #include <string.h>
 #include <unistd.h>
 

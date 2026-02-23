@@ -12,17 +12,21 @@
  * Author: Stefano Brivio <sbrivio@redhat.com>
  */
 
+#include "epoll_type.h"
+#include "fwd.h"
+#include "log.h"
+#include <asm-generic/socket.h>
+#include <stddef.h>
 #include <errno.h>
+#include <stdint.h>
+#include <string.h>
+#include <sys/epoll.h>
 #include <sys/socket.h>
-#include <sys/uio.h>
 
 #include "util.h"
-#include "ip.h"
 #include "passt.h"
-#include "inany.h"
-#include "flow.h"
-#include "flow_table.h"
 #include "epoll_ctl.h"
+#include <unistd.h>
 
 #include "repair.h"
 

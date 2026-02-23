@@ -61,10 +61,12 @@
 #include <grp.h>
 #include <inttypes.h>
 #include <limits.h>
+#include <linux/prctl.h>
 #include <pwd.h>
 #include <sched.h>
 #include <stdbool.h>
 #include <stddef.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -72,13 +74,8 @@
 #include <unistd.h>
 #include <sys/mount.h>
 #include <sys/prctl.h>
-#include <sys/socket.h>
 #include <sys/syscall.h>
-#include <sys/types.h>
-#include <netinet/in.h>
-#include <netinet/if_ether.h>
 
-#include <linux/audit.h>
 #include <linux/capability.h>
 #include <linux/filter.h>
 #include <linux/seccomp.h>

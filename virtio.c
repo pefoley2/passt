@@ -72,12 +72,16 @@
  * SUCH DAMAGE.
  */
 
+#include "log.h"
+#include <linux/vhost_types.h>
+#include <linux/virtio_config.h>
+#include <linux/virtio_ring.h>
 #include <stddef.h>
 #include <endian.h>
+#include <stdint.h>
 #include <string.h>
-#include <errno.h>
 #include <sys/eventfd.h>
-#include <sys/socket.h>
+#include <sys/uio.h>
 
 #include "util.h"
 #include "virtio.h"

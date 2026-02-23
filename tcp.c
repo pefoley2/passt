@@ -259,16 +259,21 @@
  * namespaces, see the implementation in tcp_splice.c.
  */
 
-#include <sched.h>
-#include <fcntl.h>
+#include "epoll_type.h"
+#include "fwd.h"
+#include "packet.h"
+#include "pif.h"
+#include "tcp_conn.h"
+#include <asm-generic/socket.h>
+#include <inttypes.h>
+#include <linux/if_ether.h>
 #include <stdio.h>
+#include <sys/epoll.h>
+#include <sys/param.h>
 #include <unistd.h>
-#include <signal.h>
 #include <stdlib.h>
 #include <errno.h>
 #include <limits.h>
-#include <net/ethernet.h>
-#include <net/if.h>
 #include <netinet/in.h>
 #include <netinet/ip.h>
 #include <netinet/tcp.h>
@@ -279,10 +284,8 @@
 #include <sys/ioctl.h>
 #include <sys/socket.h>
 #include <sys/timerfd.h>
-#include <sys/types.h>
 #include <sys/uio.h>
 #include <time.h>
-#include <arpa/inet.h>
 
 #include <linux/sockios.h>
 

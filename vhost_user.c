@@ -20,8 +20,13 @@
  * later.  See the COPYING file in the top-level directory.
  */
 
+#include "epoll_type.h"
+#include "log.h"
+#include "virtio.h"
+#include <asm-generic/socket.h>
+#include <endian.h>
 #include <errno.h>
-#include <fcntl.h>
+#include <linux/virtio_config.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
@@ -30,8 +35,9 @@
 #include <assert.h>
 #include <stdbool.h>
 #include <inttypes.h>
+#include <sys/socket.h>
+#include <sys/types.h>
 #include <time.h>
-#include <net/ethernet.h>
 #include <sys/eventfd.h>
 #include <sys/mman.h>
 #include <linux/vhost_types.h>
@@ -41,9 +47,9 @@
 #include "passt.h"
 #include "tap.h"
 #include "vhost_user.h"
-#include "pcap.h"
 #include "migrate.h"
 #include "epoll_ctl.h"
+#include <unistd.h>
 
 /* vhost-user version we are compatible with */
 #define VHOST_USER_VERSION 1

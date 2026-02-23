@@ -6,6 +6,9 @@
 #ifndef UTIL_H
 #define UTIL_H
 
+#include <endian.h>
+#include <linux/if_ether.h>
+#include <netinet/in.h>
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdbool.h>
@@ -14,12 +17,12 @@
 #include <stdio.h>
 #include <string.h>
 #include <signal.h>
-#include <arpa/inet.h>
+#include <sched.h>
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <time.h>
 #include <unistd.h>
-#include <sys/syscall.h>
-#include <net/ethernet.h>
 
-#include "log.h"
 
 #define VERSION_BLOB							       \
 	VERSION "\n"							       \
@@ -201,12 +204,10 @@ int do_clone(int (*fn)(void *), char *stack_area, size_t stack_size, int flags,
 #define FD_REF_BITS		24
 #define FD_REF_MAX		((int)MAX_FROM_BITS(FD_REF_BITS))
 
-#include <net/if.h>
 #include <limits.h>
 #include <stdint.h>
 
 #include "epoll_type.h"
-#include "packet.h"
 
 struct ctx;
 union sockaddr_inany;

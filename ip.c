@@ -12,11 +12,13 @@
  * Author: Stefano Brivio <sbrivio@redhat.com>
  */
 
+#include <stdint.h>
 #include <stddef.h>
 #include <netinet/in.h>
 
 #include "util.h"
 #include "ip.h"
+#include "iov.h"
 
 #define IPV6_NH_OPT(nh)							\
 	((nh) == 0   || (nh) == 43  || (nh) == 44  || (nh) == 50  ||	\

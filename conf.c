@@ -12,20 +12,23 @@
  * Author: Stefano Brivio <sbrivio@redhat.com>
  */
 
+#include <getopt.h>
 #include <arpa/inet.h>
+#include <inttypes.h>
 #include <errno.h>
 #include <fcntl.h>
-#include <getopt.h>
 #include <libgen.h>
+#include <linux/if_ether.h>
+#include <linux/limits.h>
+#include <net/if.h>
 #include <string.h>
-#include <sched.h>
+#include <sys/socket.h>
+#include <sys/syslog.h>
 #include <sys/types.h>
-#include <sys/stat.h>
 #include <limits.h>
 #include <grp.h>
 #include <pwd.h>
 #include <unistd.h>
-#include <signal.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -33,8 +36,9 @@
 #include <syslog.h>
 #include <time.h>
 #include <netinet/in.h>
-#include <netinet/if_ether.h>
 
+#include "fwd.h"
+#include "inany.h"
 #include "util.h"
 #include "ip.h"
 #include "passt.h"

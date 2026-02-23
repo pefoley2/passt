@@ -5,19 +5,27 @@
  * common_vu.c - vhost-user common UDP and TCP functions
  */
 
-#include <errno.h>
-#include <sys/uio.h>
+#include <inttypes.h>
+#include <stddef.h>
+#include <endian.h>
+#include <linux/if_ether.h>
+#include <stdint.h>
+#include <string.h>
+#include <sys/types.h>
 #include <sys/eventfd.h>
-#include <netinet/if_ether.h>
 #include <linux/virtio_net.h>
+#include <time.h>
+#include <sys/uio.h>
 
+#include "iov.h"
+#include "log.h"
+#include "virtio.h"
 #include "util.h"
 #include "passt.h"
 #include "tap.h"
 #include "vhost_user.h"
 #include "pcap.h"
 #include "vu_common.h"
-#include "migrate.h"
 #include "epoll_ctl.h"
 
 #define VU_MAX_TX_BUFFER_NB	2
