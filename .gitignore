@@ -10,3 +10,4 @@
 /seccomp_repair.h
 /c*.json
 README.plain.md
+bazel-*
