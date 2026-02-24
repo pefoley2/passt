@@ -175,6 +175,8 @@ docs: README.md
 clang-tidy: $(PASST_SRCS) $(HEADERS)
 	clang-tidy $(PASST_SRCS) -- $(filter-out -pie,$(FLAGS) $(CFLAGS) $(CPPFLAGS)) \
 	           -DCLANG_TIDY_58992
+	clang-tidy --checks=-*,misc-include-cleaner $(HEADERS) -- $(filter-out -pie,$(FLAGS) $(CFLAGS) $(CPPFLAGS)) \
+	           -DCLANG_TIDY_58992
 
 cppcheck: $(PASST_SRCS) $(HEADERS)
 	if cppcheck --check-level=exhaustive /dev/null > /dev/null 2>&1; then \
