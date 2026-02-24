@@ -173,7 +173,7 @@ docs: README.md
 	) > README.plain.md
 
 clang-tidy: $(PASST_SRCS) $(HEADERS)
-	clang-tidy $(PASST_SRCS) -- $(filter-out -pie,$(FLAGS) $(CFLAGS) $(CPPFLAGS)) \
+	clang-tidy --checks=misc-include-cleaner $(PASST_SRCS) -- $(filter-out -pie,$(FLAGS) $(CFLAGS) $(CPPFLAGS)) \
 	           -DCLANG_TIDY_58992
 
 cppcheck: $(PASST_SRCS) $(HEADERS)
